@@ -25,6 +25,7 @@ int lengthOfLongestSubstring(string &s)
                 arr[s[k]]=-1;
             c=i-loc;
             pre=loc+1;
+//             gg
             arr[s[i]]=i;
         }
         // cout<<res<<" ";
