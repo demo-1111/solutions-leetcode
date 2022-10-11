@@ -27,12 +27,13 @@ class Solution
         for(int j=1; j<n; j++)
         {
             if(tail[len-1]<a[j])
-            
+            {
                 tail[len++]=a[j];
+                if (len >= 3) return true;
+            }
             else
                 ceil(tail, a[j], len);
         }
-        if (len >= 3) return true;
         return false;
     }
 };
