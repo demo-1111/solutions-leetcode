@@ -1,15 +1,14 @@
 class Solution
 {
     public:
-    void ceil(vector<int> &vec, int x)
+    void ceil(int tail[], int x, int len)
     {
-        int i=0, j=vec.size()-1;
-        int ind=-1;
+        int i=0, j=len-1, ind=-1;
         while(i<=j)
         {
             int mid=(i+j)/2;
-            if(vec[mid]==x) return;
-            else if(vec[mid]<x) i=mid+1;
+            if(tail[mid]==x) return;
+            else if(tail[mid]<x) i=mid+1;
             else
             {
                 ind=mid;
@@ -17,35 +16,23 @@ class Solution
             }
         }
         if(ind!=-1)
-            vec[ind]=x;
+            tail[ind]=x;
     }
-    bool increasingTriplet(vector<int> &nums)
+    bool increasingTriplet(vector<int> &a)
     {
-        int n = nums.size();
-        // int arr[n];
-        // int res = 1;
-        // for (int i = 0; i < n; i++)
-        // {
-        //     arr[i] = 1;
-        //     for (int j = 0; j < i; j++)
-        //     {
-        //         if (nums[j] < nums[i])
-        //         {
-        //             arr[i] = max(arr[i], arr[j] + 1);
-        //         }
-        //     }
-        //     res = max(res, arr[i]);
-        //     if (res >= 3) return true;
-        // }
-        vector<int> res;
-        res.push_back(nums[0]);
-        for(int i=1; i<n; i++)
+        int n = a.size();
+        int tail[n];
+        int len=0;
+        tail[len++]=a[0];
+        for(int j=1; j<n; j++)
         {
-            if(res[res.size()-1]<nums[i]) res.push_back(nums[i]);
-            else ceil(res,nums[i]);
+            if(tail[len-1]<a[j])
+            
+                tail[len++]=a[j];
+            else
+                ceil(tail, a[j], len);
         }
-        // cout<<res.size();
-        if (res.size() >= 3) return true;
+        if (len >= 3) return true;
         return false;
     }
 };
