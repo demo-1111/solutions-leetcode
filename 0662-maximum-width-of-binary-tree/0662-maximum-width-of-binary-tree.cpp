@@ -32,7 +32,7 @@ int widthOfBinaryTree(TreeNode* root)
             
             int ind=ci-mn;
             if(cn->left!=NULL)
-                q.push({cn->left, (long long)2*(ci-mn)+1});    
+                q.push({cn->left, (long long)2*ind+1});    
             if(cn->right!=NULL)
                 q.push({cn->right, (long long)2*ind+2});    
         }
