@@ -32,9 +32,9 @@ int widthOfBinaryTree(TreeNode* root)
             
             int ind=ci-mn;
             if(cn->left!=NULL)
-                q.push({cn->left, (long long)2*ind+1});    
+                q.push({cn->left, (long long)(2)*ind+1});    
             if(cn->right!=NULL)
-                q.push({cn->right, (long long)2*ind+2});    
+                q.push({cn->right, (long long)(2)*ind+2});    
         }
         res=max(res,mx-mn+1);
     }    
