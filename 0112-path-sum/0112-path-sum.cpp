@@ -11,17 +11,14 @@
  */
 class Solution {
 public:
-bool RechasPathSum(TreeNode* root, int targetSum)
+
+bool hasPathSum(TreeNode* root, int targetSum)
 {
     if(root==NULL) return false;
     int cur=targetSum-root->val;
     if(root->left==NULL && root->right==NULL && cur==0)
         return true;
-    return RechasPathSum(root->left, cur) || 
-            RechasPathSum(root->right, cur);
-}
-bool hasPathSum(TreeNode* root, int targetSum)
-{
-    return RechasPathSum(root,targetSum);
+    return hasPathSum(root->left, cur) || 
+            hasPathSum(root->right, cur);
 }
 };
