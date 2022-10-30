@@ -36,10 +36,12 @@ int shortestPath(vector<vector<int>>& grid, int k)
                 int tj=cj+ar2[u];
                 if(ti>=0 && ti<n && tj>=0 && tj<m)
                 {
-                    if(visited[ti][tj][ck]==false)
-                    {
                         if(ti==n-1 && tj==m-1)
                             return res+1;
+                    if(visited[ti][tj][ck]==false)
+                    {
+                        // if(ti==n-1 && tj==m-1)
+                        //     return res+1;
                         if(grid[ti][tj]==0)
                         {
                             q.push({ti,tj,ck});
@@ -48,8 +50,8 @@ int shortestPath(vector<vector<int>>& grid, int k)
                     }
                     if(ck>=1 && visited[ti][tj][ck-1]==false)
                     {
-                        if(ti==n-1 && tj==m-1)
-                            return res+1;
+                        // if(ti==n-1 && tj==m-1)
+                        //     return res+1;
                         if(grid[ti][tj]==1)
                         {
                             q.push({ti,tj,ck-1});
