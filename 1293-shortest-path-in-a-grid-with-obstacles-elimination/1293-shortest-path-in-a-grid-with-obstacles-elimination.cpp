@@ -50,7 +50,7 @@ int shortestPath(vector<vector<int>>& grid, int k)
                     {
                         if(ti==n-1 && tj==m-1)
                             return res+1;
-                        if(ck>=1 && grid[ti][tj]==1)
+                        if(grid[ti][tj]==1)
                         {
                             q.push({ti,tj,ck-1});
                             visited[ti][tj][ck-1]=true;
