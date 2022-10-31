@@ -1,9 +1,5 @@
 class Solution {
 public:
-bool check(int i, int j, int m, int n)
-{
-    return i>=0 && i<n && j>=0 && j<m;
-}
 bool isToeplitzMatrix(vector<vector<int>>& mat)
 {
     int n=mat.size(), m=mat[0].size();
@@ -12,7 +8,7 @@ bool isToeplitzMatrix(vector<vector<int>>& mat)
         int ci=i, cj=0;
         int prev=mat[ci][cj];
         ci++; cj++;
-        while(check(ci,cj,m,n)==true)
+        while(ci<n && cj<m)
         {
             if(mat[ci][cj]!=prev)
                 return false;
@@ -25,7 +21,7 @@ bool isToeplitzMatrix(vector<vector<int>>& mat)
         int ci=0, cj=j;
         int prev=mat[ci][cj];
         ci++; cj++;
-        while(check(ci,cj,m,n)==true)
+        while(ci<n && cj<m)
         {
             if(mat[ci][cj]!=prev)
                 return false;
